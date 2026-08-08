@@ -6,3 +6,4 @@
 # Binary artifacts — never apply line-ending conversion.
 # project-planning-journaling.skill is a zip archive; converting it would corrupt it.
 *.skill binary
+*.pdf   binary

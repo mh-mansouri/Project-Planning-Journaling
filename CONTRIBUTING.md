@@ -20,8 +20,11 @@ missed something you needed answered up front.
 |---|---|
 | `project-planning-journaling/SKILL.md` | The instructions Claude follows. Most changes go here. |
 | `project-planning-journaling/references/original-prompt.md` | The original chat prompt this skill was converted from, kept for provenance only — don't edit it to change behavior. |
+| `project-planning-journaling/references/research.md` | Annotated bibliography — the sources behind each step and what they back. Add new sources here. |
+| `project-planning-journaling/references/scrum-guide-2020.pdf` | Third-party file, CC BY-SA 4.0 — see [NOTICE.md](./NOTICE.md). Not part of the `.skill` bundle (build.py excludes it deliberately). |
 | `project-planning-journaling.skill` | **Generated.** A zip of the folder above — don't edit by hand. |
 | `universal-prompt.md` | The same skill as a copy-paste prompt, for any AI chat that isn't Claude (ChatGPT, Grok, Gemini, ...). Not part of the `.skill` bundle. |
+| `NOTICE.md` | Attribution for third-party files. |
 
 ## How to propose a change
 
@@ -40,6 +43,14 @@ missed something you needed answered up front.
 
 If you edit the skill, please try it on a real (or realistic) project before submitting,
 and describe what you tested in the pull request.
+
+## Adding a research source
+
+If you cite new research in `research.md`, link to a freely accessible copy rather than
+committing the file. Only commit a file when its license clearly permits redistribution —
+and if you do, add the attribution to [NOTICE.md](./NOTICE.md). Commercially published
+books and paid standards almost never permit it; open web standards and CC-licensed
+guides often do.
 
 ## Ground rules
 

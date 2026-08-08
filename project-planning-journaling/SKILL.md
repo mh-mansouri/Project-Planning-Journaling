@@ -96,3 +96,7 @@ the "Project Scope & Repo Info" section too.
 
 Start by asking the Step 0 questions if they haven't been answered yet, then generate the
 full initial version of the documentation based on everything done so far.
+
+`references/research.md` holds the sources and reasoning behind these steps — read it
+when the developer asks *why* a step exists, or when looking for ways to extend this
+skill further.

@@ -62,6 +62,14 @@ be forked into a private branch and developed as a standalone product — but th
 decision (and any legal/licensing follow-up) is yours to make. The skill records it, it
 doesn't make it for you.
 
+## Grounded in established practice
+
+The steps aren't invented from nothing — they draw on ten freely available sources
+(architecture decision records, documentation frameworks, changelog and commit
+conventions, discovery-phase methodology, Scrum) plus five commercially published
+books/standards cited for their concepts only. Full list, and which step each one backs,
+in [`references/research.md`](./project-planning-journaling/references/research.md).
+
 ## Contributing
 
 Improvements are welcome — especially real-world cases where the journal format broke
@@ -70,3 +78,7 @@ down or the intake questions missed something. See [CONTRIBUTING.md](./CONTRIBUT
 ## License
 
 Released under the [MIT License](./LICENSE) — free to use, share, and build on.
+
+One bundled file is third-party: the 2020 Scrum Guide, redistributed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) and not covered by the
+MIT License. Full attribution is in [NOTICE.md](./NOTICE.md).

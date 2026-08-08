@@ -4,6 +4,9 @@ Run this after editing anything inside project-planning-journaling/, then
 commit the regenerated .skill alongside your change:
 
     python build.py
+
+The Scrum Guide PDF in references/ is deliberately excluded — nothing reads
+it at runtime and it's 250 KB of mostly-unrelated bulk for a chat bundle.
 """
 
 import os
@@ -18,6 +21,7 @@ OUT = os.path.join(ROOT, "project-planning-journaling.skill")
 INCLUDE = [
     "SKILL.md",
     "references/original-prompt.md",
+    "references/research.md",
 ]
 
 

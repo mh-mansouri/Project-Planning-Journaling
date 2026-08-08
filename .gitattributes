@@ -1,0 +1,8 @@
+# Store every text file with LF in the repository and check it out with LF on
+# every platform. Without this, Windows editors reintroduce CRLF and an edit of
+# one line shows up as a whole-file diff.
+* text=auto eol=lf
+
+# Binary artifacts — never apply line-ending conversion.
+# project-planning-journaling.skill is a zip archive; converting it would corrupt it.
+*.skill binary

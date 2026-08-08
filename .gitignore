@@ -1,0 +1,17 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Python (build.py)
+__pycache__/
+*.py[cod]
+
+# Note: project-planning-journaling.skill IS committed on purpose — it is the
+# one-click install artifact. Regenerate it with `python build.py` after
+# editing the project-planning-journaling/ folder.

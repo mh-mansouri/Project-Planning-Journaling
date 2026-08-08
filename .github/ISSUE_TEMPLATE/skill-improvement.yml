@@ -1,0 +1,30 @@
+name: "💡 Skill improvement"
+description: "The skill missed a question, produced a bad journal structure, or its instructions could be worded better."
+title: "[Improvement]: "
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of improvement?
+      options:
+        - Missing an intake question (Step 0)
+        - Journal/README format doesn't fit a real case
+        - Ongoing-maintenance step was skipped or wrong
+        - Better wording for the skill's instructions
+        - New capability idea
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe it
+      description: What happened (or what's missing), and what you'd expect instead.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example project/scenario (optional)
+      description: A concrete project type and situation makes the issue much easier to act on.

@@ -21,6 +21,7 @@ missed something you needed answered up front.
 | `project-planning-journaling/SKILL.md` | The instructions Claude follows. Most changes go here. |
 | `project-planning-journaling/references/original-prompt.md` | The original chat prompt this skill was converted from, kept for provenance only — don't edit it to change behavior. |
 | `project-planning-journaling.skill` | **Generated.** A zip of the folder above — don't edit by hand. |
+| `universal-prompt.md` | The same skill as a copy-paste prompt, for any AI chat that isn't Claude (ChatGPT, Grok, Gemini, ...). Not part of the `.skill` bundle. |
 
 ## How to propose a change
 
@@ -33,7 +34,9 @@ missed something you needed answered up front.
    This regenerates `project-planning-journaling.skill` from the source folder. Commit
    the rebuilt file alongside your edit — otherwise the one-click install and the source
    folder ship different versions of the skill.
-4. Open a pull request with a short note on what you changed and why.
+4. **If the behavior changed, mirror the change in `universal-prompt.md`** — it's a
+   separate, condensed copy for non-Claude chats, so it doesn't update automatically.
+5. Open a pull request with a short note on what you changed and why.
 
 If you edit the skill, please try it on a real (or realistic) project before submitting,
 and describe what you tested in the pull request.

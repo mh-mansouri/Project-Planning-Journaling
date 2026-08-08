@@ -7,6 +7,7 @@
 - [ ] I tried the updated skill on a real (or realistic) project (if the change affects `project-planning-journaling/SKILL.md`)
 - [ ] I described what I tested below
 - [ ] I rebuilt `project-planning-journaling.skill` with `python build.py` and committed it
+- [ ] I mirrored any behavior change into `universal-prompt.md` (if applicable)
 
 ## What I tested
 

@@ -35,6 +35,10 @@ organization.)
 Copy the [`project-planning-journaling/`](./project-planning-journaling) folder into your
 skills directory.
 
+**Option C — any other AI chat (ChatGPT, Grok, Gemini, Copilot, DeepSeek, ...):**
+Copy [`universal-prompt.md`](./universal-prompt.md) into your first message — no install,
+no file upload, works anywhere.
+
 ## Use it
 
 Just tell Claude you're starting (or resuming) a project, for example:

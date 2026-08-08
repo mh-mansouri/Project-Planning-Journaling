@@ -25,6 +25,8 @@ missed something you needed answered up front.
 | `project-planning-journaling.skill` | **Generated.** A zip of the folder above — don't edit by hand. |
 | `universal-prompt.md` | The same skill as a copy-paste prompt, for any AI chat that isn't Claude (ChatGPT, Grok, Gemini, ...). Not part of the `.skill` bundle. |
 | `NOTICE.md` | Attribution for third-party files. |
+| `README.md` / `README.sv.md` / `README.fa.md` | English, Swedish, and Persian versions of the repo README, cross-linked at the top of each. Keep all three in sync when the content changes. |
+| `index.html` | Static GitHub Pages landing page (English only). Links to the same install options as the README — update both when install steps change. |
 
 ## How to propose a change
 

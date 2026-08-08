@@ -1,11 +1,18 @@
 # Project Planning & Journaling — a Claude Skill
 
+**English** · [Svenska](./README.sv.md) · [فارسی](./README.fa.md)
+
 A skill for [Claude](https://claude.ai) that helps you scope a project properly before
 writing any code, then keeps a living, resumable documentation journal of everything that
 happens as the project moves forward.
 
 Open a brand-new session weeks later, point Claude at `project-journal/README.md`, and it
 knows exactly where things stand — no re-reading old chat history required.
+
+Prefer a page over a chat? [`index.html`](./index.html) is a static overview with the same
+install links — once GitHub Pages is turned on (Settings → Pages → Deploy from branch →
+`main` / `/root`) it's live at `https://mh-mansouri.github.io/Project-Planning-Journaling/`,
+or just open the file locally, no server needed.
 
 ## What it does
 

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Planning &amp; Journaling — a Claude Skill</title>
+<meta name="description" content="A Claude Skill that scopes a project before any code is written, then keeps a living, resumable documentation journal as work progresses.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f5f6f8;
+    --text: #1c1f26;
+    --text-muted: #565d6b;
+    --border: #e2e5ea;
+    --accent: #3457d5;
+    --accent-text: #ffffff;
+    --code-bg: #eef0f4;
+    --shadow: 0 1px 2px rgba(20, 24, 32, 0.06), 0 1px 1px rgba(20, 24, 32, 0.04);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161b;
+      --bg-alt: #1b1e25;
+      --text: #eceef2;
+      --text-muted: #a2a9b6;
+      --border: #2b2f38;
+      --accent: #7c93ff;
+      --accent-text: #10131a;
+      --code-bg: #20232b;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  a { color: var(--accent); }
+  code {
+    background: var(--code-bg);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  main { max-width: 880px; margin: 0 auto; padding: 0 24px 80px; }
+  header.hero { max-width: 880px; margin: 0 auto; padding: 56px 24px 8px; }
+  .langs { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 24px; }
+  .langs a { color: var(--text-muted); text-decoration: none; border-bottom: 1px dotted var(--text-muted); }
+  .langs a:hover { color: var(--accent); border-color: var(--accent); }
+  h1 { font-size: 2.1rem; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .tagline { font-size: 1.15rem; color: var(--text-muted); margin: 0 0 28px; max-width: 640px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+    text-decoration: none; border: 1px solid var(--border);
+  }
+  .btn-primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+  .btn-secondary { background: var(--bg-alt); color: var(--text); }
+  section { margin-top: 56px; }
+  h2 { font-size: 1.4rem; margin: 0 0 20px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 20px; box-shadow: var(--shadow);
+  }
+  .card h3 { margin: 0 0 8px; font-size: 1.02rem; }
+  .card p { margin: 0; color: var(--text-muted); font-size: 0.94rem; }
+  .install-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .install-card {
+    border: 1px solid var(--border); border-radius: 10px; padding: 20px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .install-card .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  .install-card p { margin: 0; font-size: 0.94rem; color: var(--text-muted); }
+  blockquote {
+    margin: 0 0 14px; padding: 12px 18px; border-left: 3px solid var(--accent);
+    background: var(--bg-alt); border-radius: 0 8px 8px 0; color: var(--text);
+  }
+  blockquote p { margin: 0; }
+  footer {
+    max-width: 880px; margin: 64px auto 0; padding: 24px 24px 48px;
+    border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.88rem;
+  }
+  footer a { color: var(--text-muted); }
+  footer .sep { margin: 0 8px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="langs">
+    <a href="https://github.com/mh-mansouri/Project-Planning-Journaling/blob/main/README.md">English</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/mh-mansouri/Project-Planning-Journaling/blob/main/README.sv.md">Svenska</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/mh-mansouri/Project-Planning-Journaling/blob/main/README.fa.md">فارسی</a>
+  </div>
+  <h1>Project Planning &amp; Journaling</h1>
+  <p class="tagline">
+    A skill for <a href="https://claude.ai">Claude</a> that scopes a project properly
+    before any code is written, then keeps a living, resumable documentation journal of
+    everything that happens as work moves forward.
+  </p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://github.com/mh-mansouri/Project-Planning-Journaling">View on GitHub</a>
+    <a class="btn btn-secondary" href="./project-planning-journaling.skill">Download .skill</a>
+    <a class="btn btn-secondary" href="./universal-prompt.md">Universal prompt (any AI chat)</a>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>What it does</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Project intake</h3>
+        <p>Before touching code: project type, whether a Git repo exists (name, visibility, license if not), short vs. long-term goals, and public vs. private-product path.</p>
+      </div>
+      <div class="card">
+        <h3>A dedicated journal folder</h3>
+        <p><code>project-journal/</code>, separate from source: a dashboard README, a decisions log, real code snippets, optional per-session notes.</p>
+      </div>
+      <div class="card">
+        <h3>A skimmable dashboard</h3>
+        <p>Plain language, tables and Mermaid diagrams over prose, checklists for every milestone, collapsible sections for anything long.</p>
+      </div>
+      <div class="card">
+        <h3>Stays current on its own</h3>
+        <p>After any meaningful step, decision, commit, or push, it updates the roadmap, decisions log, git history, and next steps automatically.</p>
+      </div>
+      <div class="card">
+        <h3>A development-style choice</h3>
+        <p>Spec-first (plan fully up front), interactive/iterative (flexible, journal captures decisions after the fact), or a milestone-based hybrid.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Install</h2>
+    <div class="install-grid">
+      <div class="install-card">
+        <span class="label">Option A · Easiest</span>
+        <h3>One-click Claude Skill</h3>
+        <p>Download <a href="./project-planning-journaling.skill"><code>project-planning-journaling.skill</code></a>, open it in Claude, click <strong>Save skill</strong>.</p>
+      </div>
+      <div class="install-card">
+        <span class="label">Option B</span>
+        <h3>From source folder</h3>
+        <p>Copy <a href="https://github.com/mh-mansouri/Project-Planning-Journaling/tree/main/project-planning-journaling"><code>project-planning-journaling/</code></a> into your skills directory.</p>
+      </div>
+      <div class="install-card">
+        <span class="label">Option C · Any AI chat</span>
+        <h3>ChatGPT, Grok, Gemini, ...</h3>
+        <p>Copy <a href="./universal-prompt.md"><code>universal-prompt.md</code></a> into your first message. No install, no file upload.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Use it</h2>
+    <blockquote><p>I'm starting a new side project — a CLI tool for renaming photo batches. Let's plan it out before we write anything.</p></blockquote>
+    <blockquote><p>Set up a project journal for everything we've built so far, and keep it updated from now on.</p></blockquote>
+    <blockquote><p>Open the project journal and tell me where we left off.</p></blockquote>
+  </section>
+
+  <section>
+    <h2>Grounded in established practice</h2>
+    <p style="color:var(--text-muted)">
+      The steps aren't invented from nothing — they draw on ten freely available sources
+      (architecture decision records, documentation frameworks, changelog and commit
+      conventions, discovery-phase methodology, Scrum) plus five commercially published
+      books/standards cited for their concepts only. Full list in
+      <a href="https://github.com/mh-mansouri/Project-Planning-Journaling/blob/main/project-planning-journaling/references/research.md">research.md</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <a href="./LICENSE">MIT License</a>
+  <span class="sep">·</span>
+  <a href="./NOTICE.md">Third-party notices</a>
+  <span class="sep">·</span>
+  <a href="./CONTRIBUTING.md">Contributing</a>
+  <span class="sep">·</span>
+  <a href="https://github.com/mh-mansouri/Project-Planning-Journaling">GitHub</a>
+</footer>
+
+</body>
+</html>

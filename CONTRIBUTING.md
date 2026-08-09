@@ -27,6 +27,9 @@ missed something you needed answered up front.
 | `NOTICE.md` | Attribution for third-party files. |
 | `README.md` / `README.sv.md` / `README.fa.md` | English, Swedish, and Persian versions of the repo README, cross-linked at the top of each. Keep all three in sync when the content changes. |
 | `index.html` | Static GitHub Pages landing page (English only). Links to the same install options as the README — update both when install steps change. |
+| `scripts/check_links.py` | Checks that every link in the READMEs, `index.html`, and the skill's docs still resolves. Add a file to `FILES` here if you add a new doc with outbound links. |
+| `.github/workflows/check-links.yml` | Runs `check_links.py` weekly plus on every push/PR. |
+| `.github/workflows/reference-review.yml` | Weekly reminder issue for the judgment half of reference review (still reputable, no newer edition) — see `research.md`'s "Keeping this current". |
 
 ## How to propose a change
 

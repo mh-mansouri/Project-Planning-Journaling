@@ -1,0 +1,25 @@
+name: check-links
+
+# Every install link, citation, and attribution in the READMEs, the landing
+# page, and the skill's own docs is something a reader or Claude actually
+# opens. A moved reference or renamed repo breaks silently otherwise. The
+# weekly schedule catches rot on a repository that goes weeks without a push.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Check every README / doc link still resolves
+        run: python scripts/check_links.py

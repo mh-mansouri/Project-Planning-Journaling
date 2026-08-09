@@ -2,6 +2,9 @@
 
 **English** · [Svenska](./README.sv.md) · [فارسی](./README.fa.md)
 
+[![check-links](https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/check-links.yml/badge.svg)](https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/check-links.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
 A skill for [Claude](https://claude.ai) that helps you scope a project properly before
 writing any code, then keeps a living, resumable documentation journal of everything that
 happens as the project moves forward.
@@ -30,6 +33,10 @@ or just open the file locally, no server needed.
 - **Offers a development-style choice** — spec-first (plan fully up front),
   interactive/iterative (flexible, journal captures decisions after the fact), or a
   milestone-based hybrid.
+- **Runs a routine review, not just event-triggered updates** — at whatever cadence you
+  pick (weekly by default): every link still resolves, no decision's been silently
+  overridden, no roadmap item has gone stale unnoticed, and any cited external sources
+  are still reputable, not just still online.
 
 ## Install
 
@@ -74,8 +81,11 @@ doesn't make it for you.
 The steps aren't invented from nothing — they draw on ten freely available sources
 (architecture decision records, documentation frameworks, changelog and commit
 conventions, discovery-phase methodology, Scrum) plus five commercially published
-books/standards cited for their concepts only. Full list, and which step each one backs,
+books/standards cited for their concepts only. Full list, evidence that each source is
+independently reputable (not just a top search result), and which step each one backs,
 in [`references/research.md`](./project-planning-journaling/references/research.md).
+This repo follows its own Step 6: two weekly GitHub Actions keep the list honest — one
+re-checks every link, the other opens a reminder issue for the reputation recheck.
 
 ## Contributing
 

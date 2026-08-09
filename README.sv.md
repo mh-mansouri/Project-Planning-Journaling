@@ -2,12 +2,16 @@
 
 [English](./README.md) · **Svenska** · [فارسی](./README.fa.md)
 
-En skill för [Claude](https://claude.ai) som hjälper dig att avgränsa ett projekt ordentligt
-innan någon kod skrivs, och sedan för en levande, återupptagbar dokumentationsjournal över
-allt som händer medan projektet fortskrider.
+[![check-links](https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/check-links.yml/badge.svg)](https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/check-links.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
+En skill för [Claude](https://claude.ai) som hjälper dig att avgränsa ett projekt
+ordentligt innan någon kod skrivs, och sedan för en levande projektjournal över allt som
+händer — en journal du enkelt kan plocka upp igen, oavsett hur långt in i projektet ni är.
 
 Öppna en helt ny session några veckor senare, peka Claude mot `project-journal/README.md`,
-så vet den exakt var ni är — utan att behöva bläddra igenom gammal chatthistorik.
+så vet den exakt var arbetet ligger — utan att du behöver bläddra igenom gammal
+chatthistorik.
 
 Föredrar du en sida framför en chatt? [`index.html`](./index.html) är en statisk översikt
 med samma installationslänkar — när GitHub Pages är påslaget (Settings → Pages → Deploy
@@ -21,9 +25,9 @@ ingen server behövs.
   redan finns (och om inte, föreslår ett namn, synlighet och en licens), kortsiktiga mot
   långsiktiga mål, och om detta ska förbli publikt/öppen källkod eller senare kan bli en
   privat produkt.
-- **Sätter upp en `project-journal/`-mapp** — separat från källkoden, med en
-  instrumentpanel `README.md`, en `decisions/`-logg, riktiga kodexempel i `snippets/`, och
-  valfria anteckningar per session.
+- **Skapar en `project-journal/`-mapp** — separat från källkoden, med en instrumentpanel
+  `README.md`, en `decisions/`-logg, riktiga kodexempel i `snippets/`, och valfria
+  anteckningar per session.
 - **Skriver en lättöverskådlig instrumentpanel** — enkelt språk, tabeller och
   Mermaid-diagram i stället för löptext, checklistor för varje milstolpe, hopfällbara
   sektioner för allt som är långt.
@@ -32,6 +36,11 @@ ingen server behövs.
 - **Erbjuder ett val av utvecklingsstil** — spec-first (planera helt i förväg),
   interactive/iterative (flexibelt, journalen fångar beslut i efterhand), eller en
   milstolpebaserad hybrid.
+- **Gör en återkommande genomgång, inte bara händelsestyrda uppdateringar** — i den takt
+  du väljer (vecka som standard): kontrollerar att alla länkar fortfarande fungerar, att
+  inget beslut tyst har åsidosatts, att ingen punkt i färdplanen blivit liggande obemärkt,
+  och att eventuella externa källor som citeras fortfarande är trovärdiga — inte bara
+  fortfarande nåbara online.
 
 ## Installation
 
@@ -53,12 +62,12 @@ installation, ingen filuppladdning, fungerar överallt.
 
 Berätta bara för Claude att du startar (eller återupptar) ett projekt, till exempel:
 
-> Jag startar ett nytt sidoprojekt — ett CLI-verktyg för att byta namn på fotobatcher. Låt
-> oss planera det innan vi skriver något.
+> Jag startar ett nytt sidoprojekt — ett CLI-verktyg för att döpa om en hel mapp med
+> bildfiler i ett svep. Låt oss planera det innan vi skriver något.
 
 eller, på ett befintligt projekt:
 
-> Sätt upp en projektjournal för allt vi har byggt hittills, och håll den uppdaterad från
+> Skapa en projektjournal för allt vi har byggt hittills, och håll den uppdaterad från
 > och med nu.
 
 eller, för att återuppta:
@@ -77,8 +86,12 @@ dokumenterar det, den bestämmer det inte åt dig.
 Stegen är inte påhittade ur tomma intet — de bygger på tio fritt tillgängliga källor
 (architecture decision records, dokumentationsramverk, changelog- och commit-konventioner,
 discovery-fas-metodik, Scrum) plus fem kommersiellt publicerade böcker/standarder som
-citeras enbart för sina koncept. Fullständig lista, och vilket steg var och en backar upp,
-i [`references/research.md`](./project-planning-journaling/references/research.md).
+citeras enbart för sina koncept. Fullständig lista, belägg för att varje källa faktiskt är
+erkänd (inte bara den första sökträffen), och vilket steg var och en backar upp, i
+[`references/research.md`](./project-planning-journaling/references/research.md).
+Detta repo praktiserar sitt eget steg 6: två veckovisa GitHub Actions håller listan ärlig —
+en kontrollerar om alla länkar på nytt, den andra öppnar ett påminnelseärende för
+trovärdighetsgranskningen.
 
 ## Bidra
 
@@ -89,6 +102,6 @@ eller intagsfrågorna missade något. Se [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 Utgiven under [MIT-licensen](./LICENSE) — fri att använda, dela och bygga vidare på.
 
-En medföljande fil är tredje part: 2020 års Scrum Guide, vidaredistribuerad under
-[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) och omfattas inte av
-MIT-licensen. Fullständig attribution i [NOTICE.md](./NOTICE.md).
+En av de bifogade filerna kommer från tredje part: 2020 års Scrum Guide,
+vidaredistribuerad under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+och omfattas inte av MIT-licensen. Fullständig attribution i [NOTICE.md](./NOTICE.md).

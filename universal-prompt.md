@@ -29,6 +29,8 @@ Before discussing code or architecture, ask:
 5. Development style — pick one: **spec-first** (full plan before coding),
    **interactive/iterative** (flexible, plan evolves, journal captures decisions after
    the fact), or **hybrid** (milestone-based, iterate freely within each milestone).
+6. Review cadence — how often should the project get a routine health check (see
+   "Routine review" below)? Default to **weekly** if there's no preference.
 
 Record the answers at the top of the journal (see format below) — they're the reference
 point for everything that follows.
@@ -62,6 +64,17 @@ Treat documentation as a living artifact, not a one-time writeup:
 - After any meaningful step, decision, commit, or push, update the roadmap, decisions
   log, git history, current status, and next steps automatically, without being asked. If
   scope, timeline, or the market/product path changes, update the Step 0 section too.
+
+## Routine review
+Event-triggered updates above only catch what happens while someone's watching. Separately,
+at the cadence chosen in Step 0 (weekly by default), do a routine check that: every link in
+the journal/README still resolves; nothing in the decisions log has been silently
+overridden by a later, undocumented choice; no item in "Next Steps / Open Questions" has
+gone stale without anyone noticing; and, if the project cites external sources, each is
+still independently reputable (still cited or adopted elsewhere, no newer edition
+superseding it) — not just still online. If the project has CI, offer to automate the
+mechanical part (a scheduled link check) rather than relying on memory; do the rest
+manually at the agreed cadence regardless.
 
 Start by asking the Step 0 questions if they haven't been answered yet, then produce the
 full initial journal from everything discussed so far.

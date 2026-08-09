@@ -1,6 +1,6 @@
 ---
 name: project-planning-journaling
-description: Scope a new project (or resume an existing one) and set up a living, resumable documentation journal for it. Use at the very start of any project, before writing code, to ask about project type, Git repo status, short/long-term goals, and whether it should stay public/open-source or become a private product later. Also use whenever someone asks to document what's been done so far, wants a project changelog or decision log, needs to resume work from a previous session without re-reading chat history, or wants documentation kept up to date automatically after every commit. Trigger this for phrases like "let's plan this project", "set up a project journal", "document what we've done", "where did we leave off", or "should this be open source or a private product" — even if the person doesn't say the word "skill".
+description: Scope a new project (or resume an existing one) and set up a living, resumable documentation journal for it, including a routine (e.g. weekly) health check, not just updates triggered by commits. Use at the very start of any project, before writing code, to ask about project type, Git repo status, short/long-term goals, and whether it should stay public/open-source or become a private product later. Also use whenever someone asks to document what's been done so far, wants a project changelog or decision log, needs to resume work from a previous session without re-reading chat history, wants documentation kept up to date automatically after every commit, or wants a recurring/scheduled check that links and cited references are still live and still reputable. Trigger this for phrases like "let's plan this project", "set up a project journal", "document what we've done", "where did we leave off", "should this be open source or a private product", or "set up a weekly check on this project" — even if the person doesn't say the word "skill".
 ---
 
 # Project Planning & Journaling
@@ -31,10 +31,13 @@ Before touching code or docs, ask the developer:
    - **Interactive/iterative** — flexible, the plan evolves as work goes, the journal
      captures decisions after the fact.
    - **Hybrid** — milestone-based plan, iterate freely within each milestone.
+6. **Review cadence** — how often should the project get a routine health check (see
+   Step 6)? Default to **weekly** if the developer has no preference.
 
 Record the answers in `README.md` under a "Project Scope & Repo Info" section (name,
-type, repo, visibility, license, short/long-term goals, product path, chosen dev style)
-— this becomes the reference point for every later planning and journaling step.
+type, repo, visibility, license, short/long-term goals, product path, chosen dev style,
+review cadence) — this becomes the reference point for every later planning and
+journaling step.
 
 ## Step 1 — Review full history
 
@@ -70,7 +73,7 @@ code, containing:
   so the top-level view stays short and details are opt-in.
 - Include these sections at minimum:
   1. Project Scope & Repo Info (type, repo name, visibility, license, short/long-term
-     goals, market/product path, chosen dev style — from Step 0)
+     goals, market/product path, chosen dev style, review cadence — from Step 0)
   2. Project Overview (what & why, 2-3 lines)
   3. Roadmap / Milestones (checklist, chronological)
   4. Key Decisions Log (table: decision | reasoning | date)
@@ -93,6 +96,35 @@ decision, commit, or push, update the relevant sections (roadmap checkboxes, dec
 log, git history, current status, next steps) automatically, without waiting to be asked.
 If a change affects scope, timeline, or the market/product path decided in Step 0, update
 the "Project Scope & Repo Info" section too.
+
+This is event-triggered — it only catches what happens while someone's watching. Step 6
+covers what happens on a calendar, whether or not anyone touches the project that week.
+
+## Step 6 — Routine review
+
+Event-triggered updates (Step 5) don't catch rot: a link that quietly dies, a decision
+that's been silently superseded, a roadmap item nobody's touched in months, or — if the
+project cites external sources the way this skill's own `references/research.md` does —
+a source that's stopped being the most current or reputable choice. Set up a routine
+check at the cadence chosen in Step 0 (weekly by default) that:
+
+1. **Re-verifies every link** in the journal and README(s) still resolves.
+2. **Re-confirms decisions still hold** — nothing in the decisions log has been silently
+   overridden by a later, undocumented choice.
+3. **Flags stale roadmap items** — anything in "Next Steps / Open Questions" untouched
+   since the last routine check, surfaced for the developer to confirm, drop, or reprioritize.
+4. **Re-checks cited sources, if any** — for a project that references external
+   standards/research, confirm each is still independently reputable (still cited or
+   adopted elsewhere, no newer edition superseding it), not just still online.
+
+If the project has CI (GitHub Actions or equivalent), offer to automate what's mechanical
+here — a scheduled link check, and a scheduled reminder issue for the parts that need
+judgment — rather than relying on memory. This repository's own
+[`.github/workflows/check-links.yml`](../.github/workflows/check-links.yml) and
+[`.github/workflows/reference-review.yml`](../.github/workflows/reference-review.yml) are
+a working template: adapt the file list in `scripts/check_links.py` and the checklist in
+the reminder issue to the target project. If there's no CI, do the routine check manually
+at the agreed cadence instead — don't skip it for lack of automation.
 
 Start by asking the Step 0 questions if they haven't been answered yet, then generate the
 full initial version of the documentation based on everything done so far.

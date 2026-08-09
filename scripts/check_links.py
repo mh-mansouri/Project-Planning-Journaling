@@ -14,6 +14,13 @@ with bot-blocking) return 403 to a plain scripted request even though the
 page itself is confirmed live in a real browser. Those are treated as
 unverifiable rather than failures. Everything else must return a successful
 or redirect status.
+
+A push that both adds a page and links to it (e.g. a new index.*.html plus a
+README pointing at its Pages URL) races GitHub Pages' own build: check-links
+can run and hit a 404 before the deploy that makes the link real has
+finished -- seen in practice, ~45s. 404s on our own Pages domain get a few
+retries with backoff for exactly that reason; 404s elsewhere fail immediately,
+since retrying a truly dead external link would just waste CI time.
 """
 from __future__ import annotations
 
@@ -48,6 +55,7 @@ FILES = [
 LINK_RE = re.compile(r'\]\((https?://[^)\s]+)\)|(?:href|src)="(https?://[^"]+)"')
 
 BOT_PROTECTED_DOMAINS = ("claude.ai", "journals.sagepub.com")
+SELF_PAGES_DOMAIN = "mh-mansouri.github.io"
 
 HEADERS = {
     "User-Agent": (
@@ -91,6 +99,10 @@ def check(url: str, retries: int = 3) -> str | None:
             # once or twice rather than failing the build over rate-limiting.
             if exc.code == 429 and attempt < retries - 1:
                 time.sleep(5 * (attempt + 1))
+                continue
+            # Our own Pages site, just deployed to, racing this very check.
+            if exc.code == 404 and SELF_PAGES_DOMAIN in url and attempt < retries - 1:
+                time.sleep(20 * (attempt + 1))
                 continue
             return f"HTTP {exc.code}"
         except urllib.error.URLError as exc:

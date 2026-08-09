@@ -5,6 +5,8 @@
 [![check-links](https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/check-links.yml/badge.svg)](https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/check-links.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
+![Project Planning & Journaling demo](assets/skill-demo-mockup.gif)
+
 <div dir="rtl" align="right">
 
 یک Skill برای [Claude](https://claude.ai) که پیش از نوشتن حتی یک خط کد به شما کمک می‌کند

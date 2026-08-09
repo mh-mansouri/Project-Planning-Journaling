@@ -8,6 +8,9 @@ desktop.ini
 .idea/
 *.swp
 
+# Playwright MCP browser-automation scratch output
+.playwright-mcp/
+
 # Python (build.py)
 __pycache__/
 *.py[cod]

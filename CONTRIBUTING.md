@@ -30,6 +30,8 @@ missed something you needed answered up front.
 | `scripts/check_links.py` | Checks that every link in the READMEs, `index.html`, and the skill's docs still resolves. Add a file to `FILES` here if you add a new doc with outbound links. |
 | `.github/workflows/check-links.yml` | Runs `check_links.py` weekly plus on every push/PR. |
 | `.github/workflows/reference-review.yml` | Weekly reminder issue for the judgment half of reference review (still reputable, no newer edition) — see `research.md`'s "Keeping this current". |
+| `assets/skill-demo-mockup.gif` | **Generated** (by default) or a real screen recording, under this same filename either way. Shown at the top of all three READMEs and on `index.html`. |
+| `create_skill_demo_gif.py` | Regenerates the mock-up GIF from a scripted scenario (`python create_skill_demo_gif.py`, needs Pillow). Replace the output file with a real recording under the same name if one is ever made — nothing else needs to change. |
 
 ## How to propose a change
 

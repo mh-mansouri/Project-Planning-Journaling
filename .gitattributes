@@ -7,3 +7,4 @@
 # project-planning-journaling.skill is a zip archive; converting it would corrupt it.
 *.skill binary
 *.pdf   binary
+*.gif   binary

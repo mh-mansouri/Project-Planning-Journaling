@@ -5,6 +5,8 @@
 [![check-links](https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/check-links.yml/badge.svg)](https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/check-links.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
+![Project Planning & Journaling demo](assets/skill-demo-mockup.gif)
+
 A skill for [Claude](https://claude.ai) that helps you scope a project properly before
 writing any code, then keeps a living, resumable documentation journal of everything that
 happens as the project moves forward.

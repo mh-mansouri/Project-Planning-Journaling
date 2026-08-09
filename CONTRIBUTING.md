@@ -32,6 +32,9 @@ missed something you needed answered up front.
 | `.github/workflows/reference-review.yml` | Weekly reminder issue for the judgment half of reference review (still reputable, no newer edition) — see `research.md`'s "Keeping this current". |
 | `assets/skill-demo-mockup.gif` | **Generated** (by default) or a real screen recording, under this same filename either way. Shown at the top of all three READMEs and on `index.html`. |
 | `create_skill_demo_gif.py` | Regenerates the mock-up GIF from a scripted scenario (`python create_skill_demo_gif.py`, needs Pillow). Replace the output file with a real recording under the same name if one is ever made — nothing else needs to change. |
+| `assets/social-preview.png` | Link-unfurl image (LinkedIn, Slack, GitHub's repo card) — referenced by `index.html`'s `og:image`/`twitter:image` tags. Also re-upload manually at Settings → General → Social preview after regenerating; GitHub doesn't read it from the repo. |
+| `create_social_preview.py` | Regenerates `assets/social-preview.png` (`python create_social_preview.py`, needs Pillow). |
+| `.github/workflows/release-reminder.yml` | Weekly check for unshipped changes since the last tag — see "Cutting a release" below. |
 
 ## How to propose a change
 
@@ -58,6 +61,32 @@ committing the file. Only commit a file when its license clearly permits redistr
 and if you do, add the attribution to [NOTICE.md](./NOTICE.md). Commercially published
 books and paid standards almost never permit it; open web standards and CC-licensed
 guides often do.
+
+## Cutting a release
+
+`release-reminder.yml` runs weekly and opens an issue *only* when something in the
+**shipped surface** — `project-planning-journaling/` (what `build.py` bundles into the
+`.skill`), `universal-prompt.md`, or `build.py` itself — has changed since the last tag.
+That's the actual criterion: **does this change what a user installs or pastes?**
+
+- **Triggers a reminder:** any edit to `SKILL.md`, `references/`, `universal-prompt.md`,
+  or the bundling logic. The attached `.skill` release asset is a frozen snapshot, so it
+  silently goes stale the moment these change without a new tag.
+- **Doesn't trigger one:** README/translation wording, `index.html`, CI/workflow files,
+  this file. None of that changes what gets installed, so it doesn't need a version bump
+  — cosmetic and doc-only changes just land on `main` between releases.
+
+When a reminder fires, classify the change before tagging (SemVer, per
+[`references/research.md`](./project-planning-journaling/references/research.md)):
+
+| Bump | When |
+|---|---|
+| **PATCH** | Wording/typo fix, no behavior change (e.g. the description-length fix in v1.0.0) |
+| **MINOR** | New capability, backward compatible — an existing `project-journal/` still works (e.g. adding Step 6) |
+| **MAJOR** | Breaks or invalidates an existing `project-journal/` — a Step 0 question removed/renamed, a required README section dropped |
+
+Then: `python build.py` to rebuild the bundle, tag and publish via Releases, attach the
+rebuilt `.skill`, close the reminder issue.
 
 ## Ground rules
 

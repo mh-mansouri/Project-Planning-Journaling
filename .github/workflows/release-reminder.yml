@@ -1,0 +1,110 @@
+name: release-reminder
+
+# The .skill bundle attached to the latest GitHub Release goes stale the
+# moment its source files change without a new tag. This checks weekly
+# whether anything in the *shipped surface* — what a user actually installs
+# (project-planning-journaling/, universal-prompt.md, build.py) — has moved
+# since the last tag, and opens (never duplicates) a reminder if so.
+#
+# Deliberately narrow: README/translation/index.html-only changes don't
+# trigger this. Those don't affect what gets installed, so they don't need
+# a version bump — see CONTRIBUTING.md's "Cutting a release" for the full
+# criteria.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  check-for-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Diff the shipped surface since the last tag
+        id: diff
+        run: |
+          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          if [ -z "$LAST_TAG" ]; then
+            echo "No tags yet — nothing to compare against, skipping."
+            echo "changed=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          CHANGED=$(git diff --name-only "$LAST_TAG"..HEAD -- \
+            project-planning-journaling/ universal-prompt.md build.py)
+
+          echo "last_tag=$LAST_TAG" >> "$GITHUB_OUTPUT"
+          {
+            echo "changed<<EOF"
+            echo "$CHANGED"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+          COMMITS=$(git log --oneline "$LAST_TAG"..HEAD -- \
+            project-planning-journaling/ universal-prompt.md build.py)
+          {
+            echo "commits<<EOF"
+            echo "$COMMITS"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Open (or skip) the release-reminder issue
+        if: steps.diff.outputs.changed != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "Release reminder: unshipped changes since last tag";
+
+            const { data: openIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+            });
+            if (openIssues.find((issue) => issue.title === title)) {
+              console.log("Already open — skipping.");
+              return;
+            }
+
+            const lastTag = `${{ steps.diff.outputs.last_tag }}`;
+            const changed = `${{ steps.diff.outputs.changed }}`.trim();
+            const commits = `${{ steps.diff.outputs.commits }}`.trim();
+
+            const body = [
+              `Files that ship in the \`.skill\` bundle or \`universal-prompt.md\` have`,
+              `changed since **${lastTag}**, the last tag. That means the release`,
+              `asset attached to it no longer matches what's in \`main\`.`,
+              "",
+              "### Changed",
+              "```",
+              changed,
+              "```",
+              "",
+              "### Commits",
+              "```",
+              commits,
+              "```",
+              "",
+              "### Before cutting a release",
+              "- [ ] Classify the change: **PATCH** (wording/typo, no behavior change),",
+              "  **MINOR** (new capability, backward compatible), or **MAJOR** (breaks/",
+              "  invalidates an existing `project-journal/` made with the prior version)",
+              "- [ ] Rebuild the bundle: `python build.py`",
+              "- [ ] Tag and publish via Releases, attach the rebuilt `.skill`",
+              "- [ ] Close this issue",
+              "",
+              "Full criteria in CONTRIBUTING.md → \"Cutting a release\".",
+            ].join("\n");
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+            });

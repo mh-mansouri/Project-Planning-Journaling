@@ -94,10 +94,19 @@ Detta repo praktiserar sitt eget steg 6: två veckovisa GitHub Actions håller l
 en kontrollerar om alla länkar på nytt, den andra öppnar ett påminnelseärende för
 trovärdighetsgranskningen.
 
+## Fler liknande skills
+
+- **[Embedded / IoT Mentor](https://github.com/mh-mansouri/embedded-iot-mentor)** —
+  väljer mikrokontroller, kort och verktygskedja åt ett hårdvaruprojekt, MVP-först.
+- **[Business Name Fit](https://github.com/Elham-Farajnejad/business-name-fit)** —
+  väljer eller kontrollerar ett företags-/varumärkesnamn som är äkta mot ditt ursprung
+  och fungerar bra på de marknader du säljer till.
+
 ## Bidra
 
 Förbättringar är välkomna — särskilt verkliga fall där journalformatet inte fungerade
 eller intagsfrågorna missade något. Se [CONTRIBUTING.md](./CONTRIBUTING.md).
+Releasehistorik finns i [CHANGELOG.md](./CHANGELOG.md).
 
 ## Licens
 

@@ -35,21 +35,31 @@ missed something you needed answered up front.
 | `assets/social-preview.png` | Link-unfurl image (LinkedIn, Slack, GitHub's repo card) — referenced by `index.html`'s `og:image`/`twitter:image` tags. Also re-upload manually at Settings → General → Social preview after regenerating; GitHub doesn't read it from the repo. |
 | `create_social_preview.py` | Regenerates `assets/social-preview.png` (`python create_social_preview.py`, needs Pillow). |
 | `.github/workflows/release-reminder.yml` | Weekly check for unshipped changes since the last tag — see "Cutting a release" below. |
+| `scripts/validate_skill.py` | Checks `SKILL.md`'s frontmatter: required fields present, no extra fields, `name` matches the folder and is lowercase-hyphenated, `description` under Claude's 1024-char upload limit. |
+| `.github/workflows/validate-skill.yml` | Runs `validate_skill.py` on every push/PR that touches `SKILL.md`. |
+| `CHANGELOG.md` | Human-readable release history, [Keep a Changelog](https://keepachangelog.com/) format. Add an `[Unreleased]` entry alongside any shipped-surface change; move it under the version heading when you tag. |
 
 ## How to propose a change
 
 1. Fork this repository.
 2. Make your edit (most changes live in `project-planning-journaling/SKILL.md`).
-3. **If you changed anything inside `project-planning-journaling/`, rebuild the bundle:**
+3. **If you changed `SKILL.md`, validate it before anything else:**
+   ```
+   python scripts/validate_skill.py
+   ```
+   Catches an over-limit description or a malformed `name` locally, instead of on upload.
+4. **If you changed anything inside `project-planning-journaling/`, rebuild the bundle:**
    ```
    python build.py
    ```
    This regenerates `project-planning-journaling.skill` from the source folder. Commit
    the rebuilt file alongside your edit — otherwise the one-click install and the source
    folder ship different versions of the skill.
-4. **If the behavior changed, mirror the change in `universal-prompt.md`** — it's a
+5. **If the behavior changed, mirror the change in `universal-prompt.md`** — it's a
    separate, condensed copy for non-Claude chats, so it doesn't update automatically.
-5. Open a pull request with a short note on what you changed and why.
+6. **Add an entry under `[Unreleased]` in `CHANGELOG.md`** if the change touches the
+   shipped surface (see "Cutting a release" below).
+7. Open a pull request with a short note on what you changed and why.
 
 If you edit the skill, please try it on a real (or realistic) project before submitting,
 and describe what you tested in the pull request.
@@ -85,8 +95,9 @@ When a reminder fires, classify the change before tagging (SemVer, per
 | **MINOR** | New capability, backward compatible — an existing `project-journal/` still works (e.g. adding Step 6) |
 | **MAJOR** | Breaks or invalidates an existing `project-journal/` — a Step 0 question removed/renamed, a required README section dropped |
 
-Then: `python build.py` to rebuild the bundle, tag and publish via Releases, attach the
-rebuilt `.skill`, close the reminder issue.
+Then: `python build.py` to rebuild the bundle, move `CHANGELOG.md`'s `[Unreleased]`
+entries under a new version heading, tag and publish via Releases (reuse that section as
+the release notes), attach the rebuilt `.skill`, close the reminder issue.
 
 ## Ground rules
 

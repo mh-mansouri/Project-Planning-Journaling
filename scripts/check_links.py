@@ -45,6 +45,7 @@ FILES = [
     ROOT / "index.fa.html",
     ROOT / "universal-prompt.md",
     ROOT / "CONTRIBUTING.md",
+    ROOT / "CHANGELOG.md",
     ROOT / "NOTICE.md",
     ROOT / "project-planning-journaling" / "SKILL.md",
     ROOT / "project-planning-journaling" / "references" / "research.md",

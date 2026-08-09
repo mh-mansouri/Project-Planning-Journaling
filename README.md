@@ -89,10 +89,19 @@ in [`references/research.md`](./project-planning-journaling/references/research.
 This repo follows its own Step 6: two weekly GitHub Actions keep the list honest — one
 re-checks every link, the other opens a reminder issue for the reputation recheck.
 
+## More skills like this
+
+- **[Embedded / IoT Mentor](https://github.com/mh-mansouri/embedded-iot-mentor)** —
+  picks the microcontroller, board, and toolchain for a hardware project, MVP-first.
+- **[Business Name Fit](https://github.com/Elham-Farajnejad/business-name-fit)** —
+  picks or checks a business/brand name that's authentic to your origin and lands well
+  in the markets you're selling into.
+
 ## Contributing
 
 Improvements are welcome — especially real-world cases where the journal format broke
 down or the intake questions missed something. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+Release history is in [CHANGELOG.md](./CHANGELOG.md).
 
 ## License
 

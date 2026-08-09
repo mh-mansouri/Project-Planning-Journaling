@@ -1,0 +1,27 @@
+name: validate-skill
+
+# Catches SKILL.md frontmatter problems (missing/extra fields, bad name
+# format, an over-limit description) on every change, before a real upload
+# attempt does. No schedule: nothing external can make previously-valid
+# frontmatter invalid, only an edit can, so push/PR is enough.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "project-planning-journaling/SKILL.md"
+  pull_request:
+    paths:
+      - "project-planning-journaling/SKILL.md"
+  workflow_dispatch:
+
+jobs:
+  validate-skill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate SKILL.md frontmatter
+        run: python scripts/validate_skill.py

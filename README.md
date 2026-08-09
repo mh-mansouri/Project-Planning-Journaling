@@ -15,8 +15,8 @@ Open a brand-new session weeks later, point Claude at `project-journal/README.md
 knows exactly where things stand — no re-reading old chat history required.
 
 Prefer a page over a chat? [`index.html`](./index.html) is a static overview with the same
-install links — once GitHub Pages is turned on (Settings → Pages → Deploy from branch →
-`main` / `/root`) it's live at `https://mh-mansouri.github.io/Project-Planning-Journaling/`,
+install links — live at
+[mh-mansouri.github.io/Project-Planning-Journaling](https://mh-mansouri.github.io/Project-Planning-Journaling/),
 or just open the file locally, no server needed.
 
 ## What it does

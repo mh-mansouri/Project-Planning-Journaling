@@ -26,7 +26,7 @@ missed something you needed answered up front.
 | `universal-prompt.md` | The same skill as a copy-paste prompt, for any AI chat that isn't Claude (ChatGPT, Grok, Gemini, ...). Not part of the `.skill` bundle. |
 | `NOTICE.md` | Attribution for third-party files. |
 | `README.md` / `README.sv.md` / `README.fa.md` | English, Swedish, and Persian versions of the repo README, cross-linked at the top of each. Keep all three in sync when the content changes. |
-| `index.html` | Static GitHub Pages landing page (English only). Links to the same install options as the README — update both when install steps change. |
+| `index.html` / `index.sv.html` / `index.fa.html` | Static GitHub Pages landing pages, cross-linked at the top of each (the language switcher stays on the Pages site, it doesn't jump to GitHub). Same install options as the READMEs — keep all three, and the matching README, in sync. |
 | `scripts/check_links.py` | Checks that every link in the READMEs, `index.html`, and the skill's docs still resolves. Add a file to `FILES` here if you add a new doc with outbound links. |
 | `.github/workflows/check-links.yml` | Runs `check_links.py` weekly plus on every push/PR. |
 | `.github/workflows/reference-review.yml` | Weekly reminder issue for the judgment half of reference review (still reputable, no newer edition) — see `research.md`'s "Keeping this current". |

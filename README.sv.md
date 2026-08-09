@@ -15,11 +15,10 @@ händer — en journal du enkelt kan plocka upp igen, oavsett hur långt in i pr
 så vet den exakt var arbetet ligger — utan att du behöver bläddra igenom gammal
 chatthistorik.
 
-Föredrar du en sida framför en chatt? [`index.html`](./index.html) är en statisk översikt
-med samma installationslänkar — när GitHub Pages är påslaget (Settings → Pages → Deploy
-from branch → `main` / `/root`) ligger den live på
-`https://mh-mansouri.github.io/Project-Planning-Journaling/`, eller öppna filen lokalt,
-ingen server behövs.
+Föredrar du en sida framför en chatt? [`index.sv.html`](./index.sv.html) är en statisk
+översikt med samma installationslänkar — live på
+[mh-mansouri.github.io/Project-Planning-Journaling/index.sv.html](https://mh-mansouri.github.io/Project-Planning-Journaling/index.sv.html),
+eller öppna filen lokalt, ingen server behövs.
 
 ## Vad den gör
 

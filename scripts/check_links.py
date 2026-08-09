@@ -34,6 +34,8 @@ FILES = [
     ROOT / "README.sv.md",
     ROOT / "README.fa.md",
     ROOT / "index.html",
+    ROOT / "index.sv.html",
+    ROOT / "index.fa.html",
     ROOT / "universal-prompt.md",
     ROOT / "CONTRIBUTING.md",
     ROOT / "NOTICE.md",

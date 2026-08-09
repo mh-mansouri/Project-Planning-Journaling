@@ -17,10 +17,9 @@
 ارجاع دهید، و او دقیقاً می‌داند کار از کجا متوقف شده — بدون نیاز به مرور تاریخچهٔ
 گفتگوهای قبلی.
 
-صفحه را به چت ترجیح می‌دهید؟ [`index.html`](./index.html) یک نمای کلی ایستا با همان
-لینک‌های نصب است — پس از فعال‌سازی GitHub Pages (از مسیر Settings → Pages → Deploy from
-branch → `main` / `/root`) در آدرس زیر در دسترس خواهد بود:
-`https://mh-mansouri.github.io/Project-Planning-Journaling/`
+صفحه را به چت ترجیح می‌دهید؟ [`index.fa.html`](./index.fa.html) یک نمای کلی ایستا با
+همان لینک‌های نصب است — در دسترس در
+[mh-mansouri.github.io/Project-Planning-Journaling/index.fa.html](https://mh-mansouri.github.io/Project-Planning-Journaling/index.fa.html)
 یا همین حالا فایل را به‌صورت محلی باز کنید، نیازی به سرور نیست.
 
 ## کاری که انجام می‌دهد

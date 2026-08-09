@@ -1,22 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="sv">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Project Planning &amp; Journaling — a Claude Skill</title>
-<meta name="description" content="A Claude Skill that scopes a project before any code is written, then keeps a living, resumable documentation journal as work progresses.">
+<title>Projektplanering &amp; journalföring — en Claude Skill</title>
+<meta name="description" content="En Claude Skill som avgränsar ett projekt innan någon kod skrivs, och sedan för en levande, återupptagbar dokumentationsjournal medan arbetet fortskrider.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%93%93</text></svg>">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Project Planning & Journaling — a Claude Skill">
-<meta property="og:description" content="Scopes a project before any code is written, then keeps a living, resumable documentation journal — with a weekly routine review, not just event-triggered updates.">
-<meta property="og:url" content="https://mh-mansouri.github.io/Project-Planning-Journaling/">
+<meta property="og:title" content="Projektplanering & journalföring — en Claude Skill">
+<meta property="og:description" content="Avgränsar ett projekt innan någon kod skrivs, och för sedan en levande, återupptagbar dokumentationsjournal — med en veckovis rutingenomgång, inte bara händelsestyrda uppdateringar.">
+<meta property="og:url" content="https://mh-mansouri.github.io/Project-Planning-Journaling/index.sv.html">
 <meta property="og:image" content="https://mh-mansouri.github.io/Project-Planning-Journaling/assets/social-preview.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Project Planning & Journaling — a Claude Skill">
-<meta name="twitter:description" content="Scopes a project before any code is written, then keeps a living, resumable documentation journal — with a weekly routine review.">
+<meta name="twitter:title" content="Projektplanering & journalföring — en Claude Skill">
+<meta name="twitter:description" content="Avgränsar ett projekt innan någon kod skrivs, och för sedan en levande, återupptagbar dokumentationsjournal — med en veckovis rutingenomgång.">
 <meta name="twitter:image" content="https://mh-mansouri.github.io/Project-Planning-Journaling/assets/social-preview.png">
 <style>
   :root {
@@ -108,116 +108,117 @@
 
 <header class="hero">
   <div class="langs">
-    <strong>English</strong>
+    <a href="./index.html">English</a>
     <span class="sep">·</span>
-    <a href="./index.sv.html">Svenska</a>
+    <strong>Svenska</strong>
     <span class="sep">·</span>
     <a href="./index.fa.html">فارسی</a>
   </div>
-  <h1>Project Planning &amp; Journaling</h1>
+  <h1>Projektplanering &amp; journalföring</h1>
   <p>
     <a href="https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/check-links.yml">
       <img src="https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/check-links.yml/badge.svg" alt="check-links status">
     </a>
   </p>
   <p class="tagline">
-    A skill for <a href="https://claude.ai">Claude</a> that scopes a project properly
-    before any code is written, then keeps a living, resumable documentation journal of
-    everything that happens as work moves forward.
+    En skill för <a href="https://claude.ai">Claude</a> som avgränsar ett projekt ordentligt
+    innan någon kod skrivs, och sedan för en levande, återupptagbar dokumentationsjournal
+    över allt som händer medan arbetet fortskrider.
   </p>
   <div class="cta-row">
-    <a class="btn btn-primary" href="https://github.com/mh-mansouri/Project-Planning-Journaling">View on GitHub</a>
-    <a class="btn btn-secondary" href="./project-planning-journaling.skill">Download .skill</a>
-    <a class="btn btn-secondary" href="./universal-prompt.md">Universal prompt (any AI chat)</a>
+    <a class="btn btn-primary" href="https://github.com/mh-mansouri/Project-Planning-Journaling">Visa på GitHub</a>
+    <a class="btn btn-secondary" href="./project-planning-journaling.skill">Ladda ner .skill</a>
+    <a class="btn btn-secondary" href="./universal-prompt.md">Universalprompt (valfri AI-chatt)</a>
   </div>
-  <img src="./assets/skill-demo-mockup.gif" alt="Demo: intake questions, then the generated project journal dashboard" style="max-width:100%; border-radius:12px; border:1px solid var(--border); margin-top:28px;">
+  <img src="./assets/skill-demo-mockup.gif" alt="Demo: intagsfrågor, sedan den genererade projektjournalens instrumentpanel" style="max-width:100%; border-radius:12px; border:1px solid var(--border); margin-top:28px;">
 </header>
 
 <main>
 
   <section>
-    <h2>What it does</h2>
+    <h2>Vad den gör</h2>
     <div class="grid">
       <div class="card">
-        <h3>Project intake</h3>
-        <p>Before touching code: project type, whether a Git repo exists (name, visibility, license if not), short vs. long-term goals, and public vs. private-product path.</p>
+        <h3>Projektintag</h3>
+        <p>Innan koden rör vid något: projekttyp, om ett Git-repo finns (namn, synlighet, licens om inte), kortsiktiga mot långsiktiga mål, och publikt kontra privat-produkt-väg.</p>
       </div>
       <div class="card">
-        <h3>A dedicated journal folder</h3>
-        <p><code>project-journal/</code>, separate from source: a dashboard README, a decisions log, real code snippets, optional per-session notes.</p>
+        <h3>En egen journalmapp</h3>
+        <p><code>project-journal/</code>, separat från källkoden: en instrumentpanel-README, en beslutslogg, riktiga kodexempel, valfria anteckningar per session.</p>
       </div>
       <div class="card">
-        <h3>A skimmable dashboard</h3>
-        <p>Plain language, tables and Mermaid diagrams over prose, checklists for every milestone, collapsible sections for anything long.</p>
+        <h3>En lättöverskådlig instrumentpanel</h3>
+        <p>Enkelt språk, tabeller och Mermaid-diagram i stället för löptext, checklistor för varje milstolpe, hopfällbara sektioner för allt som är långt.</p>
       </div>
       <div class="card">
-        <h3>Stays current on its own</h3>
-        <p>After any meaningful step, decision, commit, or push, it updates the roadmap, decisions log, git history, and next steps automatically.</p>
+        <h3>Håller sig uppdaterad på egen hand</h3>
+        <p>Efter varje meningsfullt steg, beslut, commit eller push uppdaterar den färdplanen, beslutsloggen, git-historiken och nästa steg.</p>
       </div>
       <div class="card">
-        <h3>A development-style choice</h3>
-        <p>Spec-first (plan fully up front), interactive/iterative (flexible, journal captures decisions after the fact), or a milestone-based hybrid.</p>
+        <h3>Ett val av utvecklingsstil</h3>
+        <p>Spec-first (planera helt i förväg), interactive/iterative (flexibelt, journalen fångar beslut i efterhand), eller en milstolpebaserad hybrid.</p>
       </div>
       <div class="card">
-        <h3>Routine review, not just event-triggered</h3>
-        <p>At whatever cadence you pick (weekly by default): links still resolve, no decision silently overridden, no roadmap item stale unnoticed, cited sources still reputable.</p>
+        <h3>Rutinmässig genomgång, inte bara händelsestyrd</h3>
+        <p>I den takt du väljer (vecka som standard): länkar fungerar fortfarande, inget beslut tyst åsidosatt, ingen färdplanspunkt obemärkt föråldrad, citerade källor fortfarande trovärdiga.</p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Install</h2>
+    <h2>Installation</h2>
     <div class="install-grid">
       <div class="install-card">
-        <span class="label">Option A · Easiest</span>
-        <h3>One-click Claude Skill</h3>
-        <p>Download <a href="./project-planning-journaling.skill"><code>project-planning-journaling.skill</code></a>, open it in Claude, click <strong>Save skill</strong>.</p>
+        <span class="label">Alternativ A · Enklast</span>
+        <h3>Claude Skill med ett klick</h3>
+        <p>Ladda ner <a href="./project-planning-journaling.skill"><code>project-planning-journaling.skill</code></a>, öppna den i Claude, klicka på <strong>Save skill</strong>.</p>
       </div>
       <div class="install-card">
-        <span class="label">Option B</span>
-        <h3>From source folder</h3>
-        <p>Copy <a href="https://github.com/mh-mansouri/Project-Planning-Journaling/tree/main/project-planning-journaling"><code>project-planning-journaling/</code></a> into your skills directory.</p>
+        <span class="label">Alternativ B</span>
+        <h3>Från källmappen</h3>
+        <p>Kopiera <a href="https://github.com/mh-mansouri/Project-Planning-Journaling/tree/main/project-planning-journaling"><code>project-planning-journaling/</code></a> till din skills-katalog.</p>
       </div>
       <div class="install-card">
-        <span class="label">Option C · Any AI chat</span>
+        <span class="label">Alternativ C · Valfri AI-chatt</span>
         <h3>ChatGPT, Grok, Gemini, ...</h3>
-        <p>Copy <a href="./universal-prompt.md"><code>universal-prompt.md</code></a> into your first message. No install, no file upload.</p>
+        <p>Kopiera <a href="./universal-prompt.md"><code>universal-prompt.md</code></a> till ditt första meddelande. Ingen installation, ingen filuppladdning.</p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Use it</h2>
-    <blockquote><p>I'm starting a new side project — a CLI tool for renaming photo batches. Let's plan it out before we write anything.</p></blockquote>
-    <blockquote><p>Set up a project journal for everything we've built so far, and keep it updated from now on.</p></blockquote>
-    <blockquote><p>Open the project journal and tell me where we left off.</p></blockquote>
+    <h2>Använd den</h2>
+    <blockquote><p>Jag startar ett nytt sidoprojekt — ett CLI-verktyg för att döpa om en hel mapp med bildfiler i ett svep. Låt oss planera det innan vi skriver något.</p></blockquote>
+    <blockquote><p>Skapa en projektjournal för allt vi har byggt hittills, och håll den uppdaterad från och med nu.</p></blockquote>
+    <blockquote><p>Öppna projektjournalen och berätta var vi var.</p></blockquote>
   </section>
 
   <section>
-    <h2>Grounded in established practice</h2>
+    <h2>Grundad i etablerad praxis</h2>
     <p style="color:var(--text-muted)">
-      The steps aren't invented from nothing — they draw on ten freely available sources
-      (architecture decision records, documentation frameworks, changelog and commit
-      conventions, discovery-phase methodology, Scrum) plus five commercially published
-      books/standards cited for their concepts only. Full list, with evidence each source
-      is independently reputable and not just a top search result, in
+      Stegen är inte påhittade ur tomma intet — de bygger på tio fritt tillgängliga källor
+      (architecture decision records, dokumentationsramverk, changelog- och
+      commit-konventioner, discovery-fas-metodik, Scrum) plus fem kommersiellt publicerade
+      böcker/standarder som citeras enbart för sina koncept. Fullständig lista, med belägg
+      för att varje källa faktiskt är erkänd och inte bara en förstaplacering i en
+      sökmotor, i
       <a href="https://github.com/mh-mansouri/Project-Planning-Journaling/blob/main/project-planning-journaling/references/research.md">research.md</a>.
-      This repo runs its own Step 6: two weekly GitHub Actions —
+      Detta repo praktiserar sitt eget steg 6: två veckovisa GitHub Actions —
       <a href="https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/check-links.yml">check-links</a>
-      and
+      och
       <a href="https://github.com/mh-mansouri/Project-Planning-Journaling/actions/workflows/reference-review.yml">reference-review</a>
-      — keep the list honest.
+      — håller listan ärlig.
     </p>
   </section>
 
 </main>
 
 <footer>
-  <a href="./LICENSE">MIT License</a>
+  <a href="./LICENSE">MIT-licens</a>
   <span class="sep">·</span>
-  <a href="./NOTICE.md">Third-party notices</a>
+  <a href="./NOTICE.md">Meddelanden om tredje part</a>
   <span class="sep">·</span>
-  <a href="./CONTRIBUTING.md">Contributing</a>
+  <a href="./CONTRIBUTING.md">Bidra</a>
   <span class="sep">·</span>
   <a href="https://github.com/mh-mansouri/Project-Planning-Journaling">GitHub</a>
 </footer>

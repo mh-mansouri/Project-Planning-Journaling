@@ -37,6 +37,7 @@ missed something you needed answered up front.
 | `.github/workflows/release-reminder.yml` | Weekly check for unshipped changes since the last tag — see "Cutting a release" below. |
 | `scripts/validate_skill.py` | Checks `SKILL.md`'s frontmatter: required fields present, no extra fields, `name` matches the folder and is lowercase-hyphenated, `description` under Claude's 1024-char upload limit. |
 | `.github/workflows/validate-skill.yml` | Runs `validate_skill.py` on every push/PR that touches `SKILL.md`. |
+| `.github/workflows/keepalive.yml` | Monthly: re-enables every workflow through the API, so GitHub doesn't switch off the weekly ones after 60 days without a push. |
 | `CHANGELOG.md` | Human-readable release history, [Keep a Changelog](https://keepachangelog.com/) format. Add an `[Unreleased]` entry alongside any shipped-surface change; move it under the version heading when you tag. |
 
 ## How to propose a change

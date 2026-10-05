@@ -1,0 +1,32 @@
+name: keepalive
+
+# GitHub turns off scheduled workflows after 60 days without repository
+# activity, which would silently stop the weekly check-links,
+# reference-review and release-reminder runs on a quiet repo. Once a month
+# this re-enables every workflow in .github/workflows (itself included) through
+# the API, which resets that 60-day clock without dummy commits. Added
+# 2026-10-05 after GitHub's "will be disabled soon" emails for those three.
+
+on:
+  schedule:
+    - cron: "0 7 1 * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Re-enable every workflow in this repo
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          ids=$(gh api "repos/$REPO/actions/workflows" --paginate \
+            --jq '.workflows[] | select(.path | startswith(".github/workflows/")) | .id')
+          for id in $ids; do
+            gh api -X PUT "repos/$REPO/actions/workflows/$id/enable"
+            echo "re-enabled workflow $id"
+          done

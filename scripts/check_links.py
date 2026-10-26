@@ -21,6 +21,11 @@ can run and hit a 404 before the deploy that makes the link real has
 finished -- seen in practice, ~45s. 404s on our own Pages domain get a few
 retries with backoff for exactly that reason; 404s elsewhere fail immediately,
 since retrying a truly dead external link would just waste CI time.
+
+A 5xx is the host's own server failing, not a moved or deleted page (seen on
+2026-10-26: one ubuntu.com blog post answered 500 while the rest of the blog
+was up). Those get the same retries, then a WARN line instead of a failure, so
+a host's bad day does not fail the build; a 404 or 410 still does.
 """
 from __future__ import annotations
 
@@ -57,6 +62,7 @@ LINK_RE = re.compile(r'\]\((https?://[^)\s]+)\)|(?:href|src)="(https?://[^"]+)"'
 
 BOT_PROTECTED_DOMAINS = ("claude.ai", "journals.sagepub.com")
 SELF_PAGES_DOMAIN = "mh-mansouri.github.io"
+WARN_PREFIX = "server error, not counted: "
 
 HEADERS = {
     "User-Agent": (
@@ -105,6 +111,12 @@ def check(url: str, retries: int = 3) -> str | None:
             if exc.code == 404 and SELF_PAGES_DOMAIN in url and attempt < retries - 1:
                 time.sleep(20 * (attempt + 1))
                 continue
+            # The host's server is failing, not the link: retry, then warn only.
+            if exc.code >= 500:
+                if attempt < retries - 1:
+                    time.sleep(10 * (attempt + 1))
+                    continue
+                return f"{WARN_PREFIX}HTTP {exc.code}"
             return f"HTTP {exc.code}"
         except urllib.error.URLError as exc:
             return str(exc.reason)
@@ -117,6 +129,8 @@ def main() -> int:
         error = check(url)
         if error is None:
             print(f"OK   {url}")
+        elif error.startswith(WARN_PREFIX):
+            print(f"WARN {url} ({source}): {error}")
         else:
             print(f"FAIL {url} ({source}): {error}")
             failures.append((source, url, error))

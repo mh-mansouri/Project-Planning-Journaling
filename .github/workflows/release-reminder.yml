@@ -23,7 +23,7 @@ jobs:
   check-for-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -57,7 +57,7 @@ jobs:
 
       - name: Open (or skip) the release-reminder issue
         if: steps.diff.outputs.changed != ''
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const title = "Release reminder: unshipped changes since last tag";
